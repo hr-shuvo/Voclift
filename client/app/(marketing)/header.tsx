@@ -1,5 +1,5 @@
 import Image from "next/image";
-import {Loader} from "lucide-react";
+// import {Loader} from "lucide-react";
 import {Button} from "@/components/ui/button";
 
 export const Header = () =>{

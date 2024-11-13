@@ -1,55 +1,55 @@
 import type { Metadata } from "next";
 import {
-  Bungee_Tint,
-  Edu_AU_VIC_WA_NT_Guides,
-  Geist_Mono,
+  // Bungee_Tint,
+  // Edu_AU_VIC_WA_NT_Guides,
+  // Geist_Mono,
   Nunito,
-  Pacifico,
-  Press_Start_2P,
-  Rampart_One,
-  Saira_Stencil_One,
-  Sour_Gummy,
-  Titillium_Web,
+  // Pacifico,
+  // Press_Start_2P,
+  // Rampart_One,
+  // Saira_Stencil_One,
+  // Sour_Gummy,
+  // Titillium_Web,
 } from "next/font/google";
 import "./globals.css";
 
 const font = Nunito({
   subsets: ["cyrillic"],
 });
-const font2 = Sour_Gummy({
-  subsets: ["latin"],
-});
-const font3 = Geist_Mono({
-  subsets: ["latin"],
-});
-const font4 = Titillium_Web({
-  subsets: ["latin"],
-  weight: "400",
-});
-const font5 = Pacifico({
-  subsets: ["latin"],
-  weight: "400",
-});
-const font6 = Edu_AU_VIC_WA_NT_Guides({
-  subsets: ["latin"],
-  weight: "400",
-});
-const font7 = Saira_Stencil_One({
-  subsets: ["latin"],
-  weight: "400",
-});
-const font8 = Press_Start_2P({
-  subsets: ["latin"],
-  weight: "400",
-});
-const font9 = Bungee_Tint({
-  subsets: ["latin"],
-  weight: "400",
-});
-const font10 = Rampart_One({
-  subsets: ["latin"],
-  weight: "400",
-});
+// const font2 = Sour_Gummy({
+//   subsets: ["latin"],
+// });
+// const font3 = Geist_Mono({
+//   subsets: ["latin"],
+// });
+// const font4 = Titillium_Web({
+//   subsets: ["latin"],
+//   weight: "400",
+// });
+// const font5 = Pacifico({
+//   subsets: ["latin"],
+//   weight: "400",
+// });
+// const font6 = Edu_AU_VIC_WA_NT_Guides({
+//   subsets: ["latin"],
+//   weight: "400",
+// });
+// const font7 = Saira_Stencil_One({
+//   subsets: ["latin"],
+//   weight: "400",
+// });
+// const font8 = Press_Start_2P({
+//   subsets: ["latin"],
+//   weight: "400",
+// });
+// const font9 = Bungee_Tint({
+//   subsets: ["latin"],
+//   weight: "400",
+// });
+// const font10 = Rampart_One({
+//   subsets: ["latin"],
+//   weight: "400",
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
