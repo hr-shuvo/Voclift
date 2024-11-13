@@ -19,7 +19,7 @@
 
 ## Getting Started
 
-1. Visit the app at [here](https://github.com/hr-shuvo/Voclift).
+1. Visit the app at [here](https://voclift.vercel.app/).
 2. Sign up and start learning English, math, and vocabulary through interactive lessons!
 
 ## Technologies Used
