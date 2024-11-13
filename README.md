@@ -1,7 +1,9 @@
 # **Voclift**
 
-![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/hr-shuvo/Voclift) ![GitHub last commit](https://img.shields.io/github/last-commit/hr-shuvo/Voclift) ![GitHub language count](https://img.shields.io/github/languages/count/hr-shuvo/Voclift)
- ![GitHub top language](https://img.shields.io/github/languages/top/hr-shuvo/Voclift)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/hr-shuvo/Voclift?logo=upptime&logoColor=red&color=red)
+![GitHub last commit](https://img.shields.io/github/last-commit/hr-shuvo/Voclift?logo=wakatime)
+![GitHub language count](https://img.shields.io/github/languages/count/hr-shuvo/Voclift?labelColor=%22F0E68C&color=%23008080)
+![GitHub top language](https://img.shields.io/github/languages/top/hr-shuvo/Voclift)
 
 
 
@@ -36,7 +38,9 @@
 
 For questions or feedback, reach out at **h.r.shuvo9@gmail.com**  
 
-[![Website](https://img.shields.io/badge/Website-hrshuvo-blue?style=for-the-badge)](https://hr-shuvo.github.io/) [![hrshuvo](https://img.shields.io/badge/LinkedIn-hrshuvo-blue?style=for-the-badge)](https://www.linkedin.com/in/hrshuvo9/)
+[![Website](https://img.shields.io/badge/Website-hrshuvo-grey?style=for-the-badge&labelColor=%233e65cf)](https://hr-shuvo.github.io/)
+[![Linkedin](https://img.shields.io/badge/LinkedIn-hrshuvo-grey?style=for-the-badge&labelColor=blue)](https://www.linkedin.com/in/hrshuvo9/)
+[![Gmail](https://img.shields.io/badge/Email-h.r.shuvo9@gmail.com-%23ffff?style=for-the-badge&labelColor=red)](mailto:h.r.shuvo9@gmail.com)
 
 
 
