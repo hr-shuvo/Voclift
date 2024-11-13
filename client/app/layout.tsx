@@ -1,16 +1,54 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import {
+  Bungee_Tint,
+  Edu_AU_VIC_WA_NT_Guides,
+  Geist_Mono,
+  Nunito,
+  Pacifico,
+  Press_Start_2P,
+  Rampart_One,
+  Saira_Stencil_One,
+  Sour_Gummy,
+  Titillium_Web,
+} from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const font = Nunito({
+  subsets: ["cyrillic"],
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const font2 = Sour_Gummy({
+  subsets: ["latin"],
+});
+const font3 = Geist_Mono({
+  subsets: ["latin"],
+});
+const font4 = Titillium_Web({
+  subsets: ["latin"],
+  weight: "400",
+});
+const font5 = Pacifico({
+  subsets: ["latin"],
+  weight: "400",
+});
+const font6 = Edu_AU_VIC_WA_NT_Guides({
+  subsets: ["latin"],
+  weight: "400",
+});
+const font7 = Saira_Stencil_One({
+  subsets: ["latin"],
+  weight: "400",
+});
+const font8 = Press_Start_2P({
+  subsets: ["latin"],
+  weight: "400",
+});
+const font9 = Bungee_Tint({
+  subsets: ["latin"],
+  weight: "400",
+});
+const font10 = Rampart_One({
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -25,11 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${font.className} `}>{children}</body>
     </html>
   );
 }
