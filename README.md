@@ -28,6 +28,11 @@
 - **Backend**: Express
 - **Database**: MongoDB
 
+## Additional Info
+
+- I have used some **[emoji](https://emojipedia.org/)** in this project to enhance the visual appeal and engagement.  
+- Created for **[Kenny](https://kenney.nl/)** – a special inspiration behind this project.
+
 ## Future Plans
 
 - Add more math topics and interactive exercises.
