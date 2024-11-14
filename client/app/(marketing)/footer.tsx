@@ -13,7 +13,7 @@ export const Footer = () => {
                         width={40}
                         className='mr-4 rounded-md'
                     />
-                    Croatian
+                    <span className='font-bold font-serif'>IELTS</span>
                 </Button>
 
             </div>
