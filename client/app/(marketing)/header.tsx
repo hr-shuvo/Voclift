@@ -12,8 +12,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {HelpCircle, LogOut, Settings, User} from "lucide-react";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import {useRouter} from "next/navigation";
-import {useState} from "react";
 import {useLoginModel, useRegisterModel} from "@/store/use-auth-modal";
 
 export const Header = () =>{

@@ -4,7 +4,6 @@ import {
     Dialog,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle
 } from "@/components/ui/dialog";
@@ -12,7 +11,7 @@ import {useEffect, useState} from "react";
 import {useLoginModel} from "@/store/use-auth-modal";
 import {Input} from "@/components/ui/input";
 import Link from "next/link";
-import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardContent, CardFooter} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
 
 export const LoginModal = () => {
