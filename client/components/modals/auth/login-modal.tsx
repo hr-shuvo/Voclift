@@ -101,6 +101,12 @@ export const LoginModal = () => {
                         </CardFooter>
                     </form>
                 </Card>
+
+
+                <DialogDescription>
+                    <span></span>
+
+                </DialogDescription>
             </DialogContent>
         </Dialog>
 

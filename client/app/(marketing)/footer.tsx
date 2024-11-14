@@ -7,7 +7,7 @@ export const Footer = () => {
             <div className='max-w-screen-lg mx-auto flex items-center justify-evenly h-full'>
                 <Button size='lg' variant='ghost' className='w-full'>
                     <Image
-                        src='/hr.svg'
+                        src='/logo/ielts1.gif'
                         alt='Croatian'
                         height={32}
                         width={40}
