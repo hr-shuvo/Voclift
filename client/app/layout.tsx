@@ -12,6 +12,8 @@ import {
   // Titillium_Web,
 } from "next/font/google";
 import "./globals.css";
+import {LoginModal} from "@/components/modals/auth/login-modal";
+import {RegisterModal} from "@/components/modals/auth/register-modal";
 
 const font = Nunito({
   subsets: ["cyrillic"],
@@ -63,7 +65,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${font.className} `}>{children}</body>
+      <body className={`${font.className} `}>
+      <LoginModal></LoginModal>
+      <RegisterModal></RegisterModal>
+      {children}
+      </body>
     </html>
   );
 }
