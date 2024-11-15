@@ -8,20 +8,23 @@ import {
     DialogTitle
 } from "@/components/ui/dialog";
 import {useEffect, useState} from "react";
-import { useRegisterModel} from "@/store/use-auth-modal";
+import {useLoginModel, useRegisterModel} from "@/store/use-auth-modal";
 import {Card, CardContent, CardFooter} from "@/components/ui/card";
 import {Input} from "@/components/ui/input";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 
 export const RegisterModal =() =>{
+    const url = process.env.NEXT_PUBLIC_API_URL;
 
     const [isClient, setIsClient] = useState(false);
     const {isOpen, close} = useRegisterModel();
+    const {openLogin} = useLoginModel();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
 
     useEffect(() =>setIsClient(true), []);
 
@@ -29,10 +32,28 @@ export const RegisterModal =() =>{
         return null;
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         // Handle login logic here
-        console.log('Login attempted with:', {email, password})
+        console.log('Register attempted with:', {email, password})
+
+        const response = await fetch(url+'auth/register',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            credentials:'include',
+            body:JSON.stringify({
+                name, email, password
+            }),
+        });
+
+        if(response.ok){
+            console.log('register success');
+            close(); // call method for close register modal
+            openLogin(); // call for open login modal
+        }else{
+            const data = await response.json();
+            console.log(data)
+        }
     }
 
     return(
@@ -94,11 +115,14 @@ export const RegisterModal =() =>{
                         <CardFooter className="flex flex-col space-y-2">
                             <Button type="submit" variant='primary'
                                     className="w-full">
-                                Login
+                                Register
                             </Button>
                             <p className="text-sm text-gray-600 text-center">
                                 Already have an account?{' '}
-                                <a  className="text-blue-500 hover:underline cursor-pointer">
+                                <a  className="text-blue-500 hover:underline cursor-pointer" onClick={()=>{
+                                    close();
+                                    openLogin();
+                                }}>
                                     Sign In
                                 </a>
                             </p>

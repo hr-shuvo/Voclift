@@ -7,17 +7,21 @@ import {
     DialogHeader,
     DialogTitle
 } from "@/components/ui/dialog";
-import {useEffect, useState} from "react";
-import {useLoginModel} from "@/store/use-auth-modal";
+import {SyntheticEvent, useEffect, useState} from "react";
+import {useLoginModel, useRegisterModel} from "@/store/use-auth-modal";
 import {Input} from "@/components/ui/input";
 import Link from "next/link";
 import {Card, CardContent, CardFooter} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
+import {useRouter} from "next/navigation";
 
 export const LoginModal = () => {
+    const url = process.env.NEXT_PUBLIC_API_URL;
+    const router = useRouter();
 
     const [isClient, setIsClient] = useState(false);
     const {isOpen, close} = useLoginModel();
+    const {openRegister} = useRegisterModel();
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -29,10 +33,29 @@ export const LoginModal = () => {
     }
 
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: SyntheticEvent) => {
         e.preventDefault()
         // Handle login logic here
-        console.log('Login attempted with:', {email, password})
+        console.log('Login attempted with:', {email, password, url});
+
+        const response = await fetch(url+'auth/login',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            credentials:'include',
+            body:JSON.stringify({
+                email, password
+            }),
+        });
+
+        if(response.ok){
+            close(); // close login modal
+            router.push('/learn');
+        }else{
+            const data = await response.json();
+            console.log(data)
+        }
+
+
     }
 
     return (
@@ -62,14 +85,9 @@ export const LoginModal = () => {
                                 />
                             </div>
                             <div className="space-y-2">
-                                <div className="flex justify-between">
-                                    <label htmlFor="password" className="text-sm font-medium text-gray-800">
-                                        Password
-                                    </label>
-                                    <Link href="/forgot-password" className="text-sm text-blue-500 hover:underline">
-                                        Forgot your password?
-                                    </Link>
-                                </div>
+                                <label htmlFor="password" className="text-sm font-medium text-gray-800">
+                                    Password
+                                </label>
                                 <Input
                                     id="password"
                                     type="password"
@@ -78,8 +96,13 @@ export const LoginModal = () => {
                                     onChange={(e) => setPassword(e.target.value)}
                                 />
 
-
                             </div>
+                            <div className="space-y-2 flex justify-end">
+                                <Link href="#" className="text-sm text-blue-500 hover:underline">
+                                    Forgot your password?
+                                </Link>
+                            </div>
+
                         </CardContent>
 
                         <CardFooter className="flex flex-col space-y-2">
@@ -93,9 +116,12 @@ export const LoginModal = () => {
                             </Button>
                             <p className="text-sm text-gray-600 text-center">
                                 Don&apos;t have an account?{' '}
-                                <Link href="/signup" className="text-blue-500 hover:underline">
+                                <button className="text-blue-500 hover:underline" onClick={()=>{
+                                    close();
+                                    openRegister();
+                                }}>
                                     Sign up
-                                </Link>
+                                </button>
                             </p>
                         </CardFooter>
                     </form>
