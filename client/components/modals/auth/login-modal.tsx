@@ -36,8 +36,7 @@ export const LoginModal = () => {
     const handleSubmit = async (e: SyntheticEvent) => {
         e.preventDefault()
         // Handle login logic here
-        console.log('Login attempted with:', {email, password});
-        console.log('public url: ', url);
+        // console.log('Login attempted with:', {email, password});
 
         const response = await fetch(url+'auth/login',{
             method: 'POST',
