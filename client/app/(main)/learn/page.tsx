@@ -11,7 +11,7 @@ const LearnPage = () =>{
                  <UserProgress></UserProgress>
              </StickyWrapper>
             <FeedWrapper>
-                <Header title={'ITLTS'}/>
+                <Header title={'IELTS'}/>
             </FeedWrapper>
         </div>
     )
