@@ -3,7 +3,7 @@
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {userLoginStatus} from "@/store/use-auth-modal";
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
                     credentials: 'include'
                 });
 
-                const content = await response.json();
+                // const content = await response.json();
                 // console.log(content);
 
                 if(response.ok){

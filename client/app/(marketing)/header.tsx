@@ -19,7 +19,7 @@ export const Header = () =>{
     const url = process.env.NEXT_PUBLIC_API_URL;
     const router = useRouter();
 
-    const {isLoggedIn, login, logout} = userLoginStatus();
+    const {isLoggedIn, logout} = userLoginStatus();
 
     const {openLogin} = useLoginModel();
     const {openRegister} = useRegisterModel();
