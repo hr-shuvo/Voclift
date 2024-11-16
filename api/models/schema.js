@@ -10,14 +10,14 @@ const courseSchema = new mongoose.Schema({
 
 // courseSchema.plugin(AutoIncrement, {course_id: 'id'});
 
-// const userProgressSchema = new mongoose.Schema({
-//     userId: {type: String, required: true, unique: true},
-//     userName: {type: String, required: true, default: "User"},
-//     userImageSrc: {type: String, required: true, default: "/mascot.svg"},
-//     activeCourseId: {type: Number, ref: "Course"},
-//     hearts: {type: Number, required: true, default: 5},
-//     points: {type: Number, required: true, default: 0},
-// });
+const userProgressSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    userName: {type: String, required: true, default: "User"},
+    userImageSrc: {type: String, required: true, default: "/mascot.svg"},
+    activeCourseId: {type: mongoose.Schema.Types.ObjectId, ref: "Course"},
+    hearts: {type: Number, required: true, default: 5},
+    points: {type: Number, required: true, default: 0},
+});
 
 //  ---------------------------------------------------------------------   //
 
@@ -59,7 +59,7 @@ const challengeOptionSchema = new mongoose.Schema({
 
 
 const Course = mongoose.model('Course', courseSchema);
-// const UserProgress = mongoose.model("UserProgress", userProgressSchema);
+const UserProgress = mongoose.model("UserProgress", userProgressSchema);
 const Unit = mongoose.model("Unit", unitSchema);
 const Lesson = mongoose.model("Lesson", lessonSchema);
 const Challenge = mongoose.model("Challenge", challengeSchema);
@@ -69,7 +69,7 @@ const ChallengeOption = mongoose.model("ChallengeOption", challengeOptionSchema)
 
 module.exports = {
     Course,
-    // UserProgress,
+    UserProgress,
     Unit,
     Lesson,
     Challenge,

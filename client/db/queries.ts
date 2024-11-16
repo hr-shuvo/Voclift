@@ -22,6 +22,28 @@ export const getCourses = cache(async ()=>{
 
 })
 
+export const getUserProgress = cache(async ()=>{
+
+    const response = await fetch(url+'userProgress',{
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'include'
+    });
+
+    if(response.ok){
+        console.log("success")
+    }else{
+        console.log("failed")
+
+    }
+
+    const data = await response.json();
+    console.log('query user progress data: ', data);
+
+    return data;
+
+})
+
 
 // const handleSubmit = async (e: SyntheticEvent) => {
 //     e.preventDefault()

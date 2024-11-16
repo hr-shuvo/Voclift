@@ -8,6 +8,7 @@ const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 const authRoutes = require('./routes/authRoutes')
 const courseRoutes = require('./routes/courseRoutes')
+const userProgressRoutes = require('./routes/userProgressRoutes')
 const errorHandler = require("./middleware/errorMiddleware")
 const {seedData} = require("./controllers/aclColtroller");
 
@@ -29,6 +30,8 @@ app.use(
 // routes
 app.use('/api/auth', authRoutes)
 app.use('/api/courses', courseRoutes)
+app.use('/api/userProgress', userProgressRoutes)
+
 
 app.post('/api/seed', seedData)
 app.get("/", (req, res) => {

@@ -1,7 +1,12 @@
 'use client'
 
 
+
 import {Card} from "@/app/(main)/courses/card";
+import {useTransition} from "react";
+import {upsertUserProgress} from "@/db/actions/user-progress";
+// import {revalidatePath} from "next/cache";
+import {useRouter} from "next/navigation";
 
 type Course = {
     _id: string;
@@ -15,6 +20,28 @@ type Props = {
 };
 
 export const List = ({courses, activeCourseId}: Props) => {
+    const router = useRouter()
+    const [pending, startTransition] = useTransition();
+
+    const onClick = (id:string) =>{
+        if(pending) return;
+
+        if(id === activeCourseId){
+            return router.push('/learn');
+        }
+
+        startTransition(() =>{
+            upsertUserProgress(id).then(()=>{
+                // revalidatePath('/courses');
+                // revalidatePath('/learn');
+                // router.push('/learn');
+            }).catch((err) =>{
+                console.log('Something went wrong ', err)
+            })
+        })
+    }
+
+
     return (
         <div className="pt-6 grid grid-cols-2 lg:grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-4">
             {
@@ -24,7 +51,7 @@ export const List = ({courses, activeCourseId}: Props) => {
                         id={course._id}
                         title={course.title}
                         imageSrc={course.imageSrc}
-                        onClick={()=>{}}
+                        onClick={onClick}
                         disabled={false}
                         active={course._id === activeCourseId}
                     />

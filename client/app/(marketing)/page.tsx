@@ -16,8 +16,8 @@ export default function Home() {
                     credentials: 'include'
                 });
 
-                // const content = await response.json();
-                // console.log(content);
+                const content = await response.json();
+                console.log(content);
 
                 if(response.ok){
                     login();
