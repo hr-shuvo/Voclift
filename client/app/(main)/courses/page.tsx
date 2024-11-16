@@ -14,7 +14,7 @@ const CoursesPage = async () =>{
         // userProgressData
     ])
 
-    // console.log(userProgress)
+    // console.log(userProgress) 
 
 
     return(
