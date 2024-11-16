@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs')
 
 const parser = require('ua-parser-js');
 const {generateToken} = require("../utils");
+const jwt = require("jsonwebtoken");
 
 // register
 const registerUser = asyncHandler(async (req, res) =>{
@@ -154,8 +155,33 @@ const logoutUser = asyncHandler(async (req, res) => {
     return res.status(200).json({message: 'Logout successful'});
 });
 
+const getUser = asyncHandler(async (req, res) =>{
+
+    try{
+        const cookie = req.cookies['token'];
+        const claims = jwt.verify(cookie, process.env.JWT_SECRET);
+
+        if(!claims){
+            return res.status(401).send({
+                message: 'user unauthorized'
+            })
+        }
+
+        const user = await User.findOne({_id: claims.id})
+        const {password, ...data} = await user.toJSON()
+
+        res.send(data);
+    }
+    catch(error){
+        return res.status(401).send({
+            message: 'unauthorized'
+        })
+    }
+});
+
 module.exports = {
     registerUser,
     loginUser,
-    logoutUser
+    logoutUser,
+    getUser
 }

@@ -13,10 +13,6 @@ export const useLoginModel = create<LoginModalState>((set) =>({
     close:() => set({isOpen:false}),
 }))
 
-
-
-
-
 type RegisterModalState = {
     isOpen:boolean;
     openRegister:() =>void;
@@ -27,3 +23,20 @@ export const useRegisterModel = create<RegisterModalState>((set) =>({
     openRegister:() => set({isOpen:true}),
     close:() => set({isOpen:false}),
 }))
+
+
+// login status start
+type LoginStatusState = {
+    isLoggedIn:boolean;
+    login:() => void;
+    logout:() => void;
+}
+
+export const userLoginStatus = create<LoginStatusState>((set) =>({
+    isLoggedIn:false,
+    login:() =>set({isLoggedIn:true}),
+    logout:() =>set({isLoggedIn:false}),
+
+}));
+// login status end
+
