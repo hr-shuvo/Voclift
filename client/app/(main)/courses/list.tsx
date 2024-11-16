@@ -1,11 +1,8 @@
 'use client'
 
-
-
 import {Card} from "@/app/(main)/courses/card";
 import {useTransition} from "react";
 import {upsertUserProgress} from "@/db/actions/user-progress";
-// import {revalidatePath} from "next/cache";
 import {useRouter} from "next/navigation";
 
 type Course = {
