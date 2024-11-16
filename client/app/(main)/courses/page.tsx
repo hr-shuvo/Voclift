@@ -4,15 +4,17 @@ import { List } from "./list";
 const CoursesPage = async () =>{
 
     const coursesData = getCourses();
-    const userProgressData = [];
+    // const userProgressData = [];
 
     const [
         courses,
-        userProgress
+        // userProgress
     ] = await Promise.all([
         coursesData,
-        userProgressData
+        // userProgressData
     ])
+
+    // console.log(userProgress)
 
 
     return(
