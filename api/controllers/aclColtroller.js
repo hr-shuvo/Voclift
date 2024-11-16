@@ -23,6 +23,11 @@ const seedData = asyncHandler(async (req, res) => {
             imageSrc: "/es.svg",
         });
 
+        const course2 = await Course.create({
+            title: "French",
+            imageSrc: "/fr.svg",
+        });
+
         const units = await Unit.insertMany([
             {
                 courseId: course._id,
