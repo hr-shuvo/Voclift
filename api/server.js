@@ -7,7 +7,9 @@ const cors = require("cors")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
 const authRoutes = require('./routes/authRoutes')
+const courseRoutes = require('./routes/courseRoutes')
 const errorHandler = require("./middleware/errorMiddleware")
+const {seedData} = require("./controllers/aclColtroller");
 
 const app = express()
 
@@ -26,8 +28,9 @@ app.use(
 
 // routes
 app.use('/api/auth', authRoutes)
+app.use('/api/courses', courseRoutes)
 
-
+app.post('/api/seed', seedData)
 app.get("/", (req, res) => {
     res.send("Home Page - vocLift");
 })
