@@ -1,6 +1,6 @@
 import { cache } from "react";
-import axios from 'axios';
-import { cookies } from "next/headers";
+// import axios from 'axios';
+// import { cookies } from "next/headers";
 import apiClient from "@/app/utils/apiClient";
 
 
