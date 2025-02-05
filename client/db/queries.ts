@@ -1,6 +1,6 @@
 import { cache } from "react";
-// import axios from 'axios';
-// import { cookies } from "next/headers";
+import axios from 'axios';
+import { cookies } from "next/headers";
 import apiClient from "@/app/utils/apiClient";
 
 
@@ -28,7 +28,11 @@ const url = process.env.NEXT_PUBLIC_API_URL;
 
 export const getCourses = cache(async () => {
     try {
-        const response = await apiClient.get('courses');
+        const response = await apiClient.get('courses',{            
+            headers: {
+                Cookie: (await cookies()).toString()
+            }
+        });
 
         return response.data;
     }
@@ -46,7 +50,11 @@ export const getUserProgress = cache(async () => {
     //     credentials: 'include'
     // });
 
-    const response = await apiClient.get('userProgress');
+    const response = await apiClient.get('userProgress',{
+        headers: {
+            Cookie: (await cookies()).toString()
+        }
+    });
 
     return response.data;
 

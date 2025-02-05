@@ -31,7 +31,7 @@ export const List = ({courses, activeCourseId}: Props) => {
             upsertUserProgress(id).then(()=>{
                 // revalidatePath('/courses');
                 // revalidatePath('/learn');
-                // router.push('/learn');
+                router.push('/learn');
             }).catch((err) =>{
                 console.log('Something went wrong ', err)
             })

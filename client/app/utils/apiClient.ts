@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
 
 
 const apiClient = axios.create({
@@ -11,23 +11,23 @@ const apiClient = axios.create({
     }
 });
 
-apiClient.interceptors.request.use(
-    async (config) =>{
-        try{
-            const cookieStore = await cookies();
-            const cookieString = cookieStore.toString();
-            if(cookieString){
-                config.headers.Cookie = cookieString;
-            }
+// apiClient.interceptors.request.use(
+//     async (config) =>{
+//         try{
+//             const cookieStore = await cookies();
+//             const cookieString = cookieStore.toString();
+//             if(cookieString){
+//                 config.headers.Cookie = cookieString;
+//             }
 
-        }catch(err){
-            console.error("Error fetching cookies:", err);
-        }
+//         }catch(err){
+//             console.error("Error fetching cookies:", err);
+//         }
 
-        return config;
-    },
-    (error) => Promise.reject(error)
+//         return config;
+//     },
+//     (error) => Promise.reject(error)
 
-)
+// )
 
 export default apiClient;
